@@ -1160,17 +1160,29 @@ public class PhysDB extends Database {
 		return protections;
 	}
 
-	
-	
-	
-	public Protection registerProtection(int blockName, int type, String world, String player, String data, int x, int y,
-			int z) {
-		return registerProtection(Material.matchMaterial(Integer.toString(blockName)).name(), Protection.Type.values()[type], world, player, data, x, y, z);
-	}
+
 	/**
 	 * Register a protection
 	 *
 	 * @param blockId
+	 * @param type
+	 * @param world
+	 * @param player
+	 * @param data
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @return
+	 */
+	@Deprecated
+	public Protection registerProtection(int blockId, Protection.Type type, String world, String player, String data, int x, int y,
+										 int z) {
+		return registerProtection(Material.matchMaterial(Integer.toString(blockId)).name(), type, world, player, data, x, y, z);
+	}
+	/**
+	 * Register a protection
+	 *
+	 * @param blockName
 	 * @param type
 	 * @param world
 	 * @param player
@@ -1234,20 +1246,6 @@ public class PhysDB extends Database {
 		}
 		return null;
 	}
-
-	/**
-	 * Register a protection
-	 *
-	 * @param blockId
-	 * @param type
-	 * @param world
-	 * @param player
-	 * @param data
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @return
-	 */
 
 	/**
 	 * Sync a History object to the database or save a newly created one
